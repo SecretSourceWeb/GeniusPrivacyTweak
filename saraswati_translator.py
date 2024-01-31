@@ -5,7 +5,7 @@ import unicodedata
 from typing import Dict, List, Sequence, Any
 
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     filemode='a',
     format='%(name)s - %(levelname)s - %(message)s'
 )

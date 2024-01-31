@@ -1,0 +1,14 @@
+version: '3'
+services:
+  ragexplorer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8501:8501"
+    volumes:
+      - .:/code
+    working_dir: /code
+    command: tail -F /dev/null
+volumes:
+ db:

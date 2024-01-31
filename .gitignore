@@ -1,1 +1,3 @@
 jumbled-text.json
+.env*
+*.pyc

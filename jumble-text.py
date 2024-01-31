@@ -40,7 +40,7 @@ logging.basicConfig(
 
 # Get the number of characters to shift from the environment variable SHIFT
 # If SHIFT is not set, use the default value of 13
-shift = int(os.getenv("SHIFT", 13))
+shift = int(os.getenv("GPT_SHIFT", 13))
 
 # Get the file to read from the command line
 if len(sys.argv) != 2:
