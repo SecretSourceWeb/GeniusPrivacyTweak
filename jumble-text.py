@@ -30,7 +30,7 @@ import json
 import string
 import logging
 
-from saraswati_translator import SaraswatiTranslator
+from genius_privacy_tweak import GeniusPrivacyTweak
 
 logging.basicConfig(
     level=logging.INFO,
@@ -56,7 +56,7 @@ f.close()
 # loop through each line and jumble the text
 jumbled_lines = []
 
-sw = SaraswatiTranslator(output_lang="Saraswati", shift=shift)
+sw = GeniusPrivacyTweak(output_lang="Saraswati", shift=shift)
 
 for line in lines:
     # remove the newline character

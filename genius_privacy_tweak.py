@@ -10,7 +10,7 @@ logging.basicConfig(
     format='%(name)s - %(levelname)s - %(message)s'
 )
 
-class SaraswatiTranslator(object):
+class GeniusPrivacyTweak(object):
     def __init__(self, input="hello", output_lang="Saraswati", shift=13):
         self.input = input
         self.output_lang = output_lang
@@ -51,7 +51,7 @@ class SaraswatiTranslator(object):
         if 'L' not in unicodedata.category(char):
             return char
 
-        unicode_range_start, unicode_range_end = SaraswatiTranslator.get_valid_unicode_range(char)
+        unicode_range_start, unicode_range_end = GeniusPrivacyTweak.get_valid_unicode_range(char)
         logging.debug(f"unicode_range_start: {unicode_range_start}, unicode_range_end: {unicode_range_end}")
         logging.debug(f"char {char} ({ord(char)})")
 
