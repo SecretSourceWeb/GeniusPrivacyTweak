@@ -4,15 +4,17 @@ This is a python module that can be used to obfuscate data sent to LLMs. It uses
 
 ## Example
 
-User query: "I've created a very small but ingenious python module and will release it as open source. Will this help my company get business?"
+**User query:** "I've created a very small but ingenious python module and will release it as open source. Will this help my company get business?"
 
-User query in the ficticious language Saraswati: "Hfre: V'ir perngrq n irel fznyy ohg vatravbhf clguba zbqhyr naq jvyy eryrnfr vg nf bcra fbhepr. Jvyy guvf uryc zl pbzcnal trg ohfvarff?"
+**User query in ficticious language:** "Hfre: V'ir perngrq n irel fznyy ohg vatravbhf clguba zbqhyr naq jvyy eryrnfr vg nf bcra fbhepr. Jvyy guvf uryc zl pbzcnal trg ohfvarff?"
 
-LLM's response in Saraswati: "Lrf, vg jvyy uryc lbhe pbzcnal trg ohfvarff ol nqqvat inyhr gb lbhe cebqhpgf naq znxvat gurz zber qrfvtavat gb hfref."
+**LLM's response in ficticious language:** "Lrf, vg jvyy uryc lbhe pbzcnal trg ohfvarff ol nqqvat inyhr gb lbhe cebqhpgf naq znxvat gurz zber qrfvtavat gb hfref."
 
-LLM's response in English: "Yes, it will help your company get business by adding value to your products and making them more designing to users."
+**LLM's response in English:** "Yes, it will help your company get business by adding value to your products and making them more designing to users."
 
-Different LLMs will have different levels of success with this technique. For example, GPT-4 does a pretty good job of completing obfuscated data, but GPT-3.5 does not. That said, depending on your fine tuning and the data you are obfuscating, you may be able to get good results with GPT-3.5 or other LLMs.
+----
+
+The example above was created using GPT-4. Different LLMs will have different levels of success with this technique. For example, GPT-4 does a pretty good job of completing obfuscated data, but GPT-3.5 does not. That said, depending on your prompt and the data you are obfuscating, you may be able to get good results with GPT-3.5 or other LLMs.
 
 ## Background
 
@@ -22,7 +24,7 @@ The idea for this project came from my experimentation with [the Microsoft Presi
 
 This project is sponsored by [Secret Source Technology - A tech team you'll love working with](https://www.secret-source.eu/). We offer dev team augmentation, custom software development, and consulting services. We have a team of 20+ developers, designers, and project managers. We have been in business for over 10 years and have worked with clients all over the world. We are experts in Python, React, TypeScript, Node, Express, NestJS, Laravel, C# .Net Core and much more, and more. We can help you with your next project. [Contact us today!](https://www.secret-source.eu/connect/)
 
-![Secret Source Technology - A tech team you'll love working with](https://www.secret-source.eu/wp-content/uploads/2019/07/seso-white-logo.png)
+![Secret Source Technology - A tech team you'll love working with](https://media.licdn.com/dms/image/D4D16AQGH4LVPJ5oboQ/profile-displaybackgroundimage-shrink_350_1400/0/1688397476732?e=1712188800&v=beta&t=lFnHVi7IDnSsCPdA64nD54zuRFZVYMZ0fGGrf12U1ks)
 
 ## Setup
 

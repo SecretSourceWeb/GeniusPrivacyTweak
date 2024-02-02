@@ -55,11 +55,29 @@ def test_gpt_english_to_saraswati():
     )
     assert gpt.translate() == "Gbqnl"
 
-def test_gpt_saraswati_to_english():
+def test_gpt_saraswati_to_english_13():
     """Test that the saraswati translator can translate from Saraswati to English"""
     gpt = GeniusPrivacyTweak(
         input="Gbqnl",
         output_lang="English"
+    )
+    assert gpt.translate() == "Today"
+
+def test_gpt_saraswati_to_english_4():
+    """Test that the saraswati translator can translate from Saraswati to English"""
+    gpt = GeniusPrivacyTweak(
+        input="Gbqnl",
+        output_lang="English",
+        shift=4
+    )
+    assert gpt.translate() == "Today"
+
+def test_gpt_saraswati_to_english_22():
+    """Test that the saraswati translator can translate from Saraswati to English"""
+    gpt = GeniusPrivacyTweak(
+        input="Gbqnl",
+        output_lang="English",
+        shift=22
     )
     assert gpt.translate() == "Today"
 

@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 parser = argparse.ArgumentParser(description='A demonstration of GeniusPrivacyTweak.')
 
 # initialize the tweak
-tweak = GeniusPrivacyTweak()
+tweak = GeniusPrivacyTweak(shift=int(os.getenv("GPT_SHIFT")))
 
 # initialize the system prompt by reading in system-prompt.txt file
 system_prompt = "System: " + open("system-prompt.txt", "r").read()
