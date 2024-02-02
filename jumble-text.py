@@ -68,16 +68,12 @@ for line in lines:
 # write the jumbled and original text to the json object
 training_set = []
 for i in range(len(lines)):
-    training_set.append({"e": lines[i].strip(), "s": jumbled_lines[i]})
-json_object = {"training_set": training_set}
+    training_set.append("e: " + lines[i].strip() + "\ns: " + jumbled_lines[i] + "\n\n")
+    logging.debug("training_set length %s", len(training_set))
 
-json_string = json.dumps(json_object, ensure_ascii=False)
-
-# write the json object to a file
-f = open("jumbled-text.json", "w")
-f.write(str(json_string))
+# write the jumbled text to a file
+f = open("jumbled-text.txt", "w")
+translations = "".join(training_set)
+f.write("Training Set:\n\n" + translations)
 f.close()
-
-# print the json object to the console
-print(json_string)
 
