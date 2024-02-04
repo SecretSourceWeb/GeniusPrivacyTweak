@@ -47,15 +47,12 @@ system_prompt = "System: " + open("system-prompt.txt", "r").read()
 # and appending the ouptut to the system_prompt variable
 # training_data = exec("python jumble-text.py english-pangram.txt")
 # if jumbled-text.txt does not exist, it will be created
-if not os.path.exists("jumbled-text.txt"):
-    process = subprocess.run("python jumble-text.py english-pangrams.txt", shell=True, check=True, stdout=subprocess.PIPE, universal_newlines=True)
-    if process.returncode != 0:
-        print("Error: " + process.stdout)
-        sys.exit(1)
-    else:
-        system_prompt += process.stdout
+process = subprocess.run("python jumble-text.py english-pangrams.txt", shell=True, check=True, stdout=subprocess.PIPE, universal_newlines=True)
+if process.returncode != 0:
+    print("Error: " + process.stdout)
+    sys.exit(1)
 else:
-    system_prompt += open("jumbled-text.txt", "r").read()
+    system_prompt += process.stdout
 
 # initialize the user prompt with the value of the query parameter from the command line
 user_prompt = "User: " + sys.argv[2]

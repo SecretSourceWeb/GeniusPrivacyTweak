@@ -59,14 +59,15 @@ def test_gpt_saraswati_to_english_13():
     """Test that the saraswati translator can translate from Saraswati to English"""
     gpt = GeniusPrivacyTweak(
         input="Gbqnl",
-        output_lang="English"
+        output_lang="English",
+        shift=13
     )
     assert gpt.translate() == "Today"
 
 def test_gpt_saraswati_to_english_4():
     """Test that the saraswati translator can translate from Saraswati to English"""
     gpt = GeniusPrivacyTweak(
-        input="Gbqnl",
+        input="Xshec",
         output_lang="English",
         shift=4
     )
@@ -75,7 +76,7 @@ def test_gpt_saraswati_to_english_4():
 def test_gpt_saraswati_to_english_22():
     """Test that the saraswati translator can translate from Saraswati to English"""
     gpt = GeniusPrivacyTweak(
-        input="Gbqnl",
+        input="Pkzwu",
         output_lang="English",
         shift=22
     )
