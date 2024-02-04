@@ -82,6 +82,15 @@ def test_gpt_saraswati_to_english_22():
     )
     assert gpt.translate() == "Today"
 
+def test_gpt_saraswati_to_english_minus_1():
+    """Test that the saraswati translator can translate from Saraswati to English"""
+    gpt = GeniusPrivacyTweak(
+        input="Snczx",
+        output_lang="English",
+        shift=-1
+    )
+    assert gpt.translate() == "Today"
+
 def test_translation_supports_symbols_and_punctuation():
     """Test that the saraswati translator can translate symbols and punctuation"""
     gpt = GeniusPrivacyTweak(
