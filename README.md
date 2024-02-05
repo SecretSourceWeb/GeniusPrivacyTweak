@@ -1,16 +1,20 @@
 # Genius Privacy Tweak (GPT)
 
-This is a python module that can be used to obfuscate data sent to LLMs. It uses a technique known as [Homomorphic Encryption](https://en.wikipedia.org/wiki/Homomorphic_encryption) to obfuscate data in a way that the LLM can still create valid completions while the data itself is gibberish. This works because an LLM is just a completion engine and does not need to understand the data it is completing. It just needs to be able to predict what comes next.
+This is a Proof of Concept (PoC) that can be used to obfuscate data sent to LLMs. It uses a technique known as [Homomorphic Encryption](https://en.wikipedia.org/wiki/Homomorphic_encryption) to obfuscate data in a way that the LLM can still create valid completions while the data itself is gibberish. This works because an LLM is just a completion engine and does not need to understand the data it is completing. It just needs to be able to predict what comes next.
 
 ## Example
 
-**User query:** "I've created a very small but ingenious python module and will release it as open source. Will this help my company get business?"
+**User query:** "I've created a proof of concept for obfuscating PII when sending it to an LLM and will release it as open source. Will this help my company get business?"
 
-**User query in ficticious language:** "Hfre: V'ir perngrq n irel fznyy ohg vatravbhf clguba zbqhyr naq jvyy eryrnfr vg nf bcra fbhepr. Jvyy guvf uryc zl pbzcnal trg ohfvarff?"
+**User query in ficticious language:** "J'wf dsfbufe b qsppg pg dpodfqu gps pcgvtdbujoh QJJ xifo tfoejoh ju up bo MMN boe xjmm sfmfbtf ju bt pqfo tpvsdf. Xjmm uijt ifmq nz dpnqboz hfu cvtjoftt?"
 
-**LLM's response in ficticious language:** "Lrf, vg jvyy uryc lbhe pbzcnal trg ohfvarff ol nqqvat inyhr gb lbhe cebqhpgf naq znxvat gurz zber qrfvtavat gb hfref."
+**LLM's response in ficticious language:** "J'wf dsfbufe b qsppg pg dpodfqu gps pcgvtdbujoh QJJ xifo tfoejoh ju up bo LLN boe xjmm sfmfbtf ju bt pqfo tpvsdf. Xjmm uijt ifmq nz dpnqboz hfu cvtjoftt?
 
-**LLM's response in English:** "Yes, it will help your company get business by adding value to your products and making them more designing to users."
+Yft, sfmfbtjoh zpvs qsppg pg dpodfqu bt pqfo tpvsdf dbo qptjujwfmz jnqbdu zpvs dpnqboz't bcjmjuz up hfu cvtjoftt jo tfwfsbm xbzt. Ju fodpvsbhft dpmmbcpsbujpo boe jowftunfou gspn uif efwfmpqfs dpnnvojuz, jodsfbtft wjtjcjmjuz, boe dbo mfbe up ofx qbsuofstijqt ps dvtupnfs sfmbujpotijqt. Bttvnjoh uif qsppg pg dpodfqu jt xfmm-sfdfjwfe, ju dbo bmtp ifmq ftubcmjti zpvs dpnqboz bt b mfbefs jo joevtusz joeopwbujpo."
+
+**LLM's response in English:** "I've created a proof of concept for obfuscating PII when sending it to an KKM and will release it as open source. Will this help my company get business?
+
+Xes, releasing your proof of concept as open source can positively impact your company's ability to get business in several ways. It encourages collaboration and investment from the developer community, increases visibility, and can lead to new partnerships or customer relationships. Assuming the proof of concept is well-received, it can also help establish your company as a leader in industry indnovation."
 
 ----
 
