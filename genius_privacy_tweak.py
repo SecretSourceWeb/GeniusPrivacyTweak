@@ -15,37 +15,27 @@ class GeniusPrivacyTweak(object):
         self.input = input
         self.output_lang = output_lang
         self.shift = shift
-
-    def translate(self):
-        """Translates the input text from English to Saraswati or vice versa"""
-        if self.output_lang == "Saraswati":
-            return self.to_saraswati()
-        elif self.output_lang == "English":
-            return self.to_english()
-        else:
-            raise ValueError("Invalid language")
     
-    def to_saraswati(self):
-        """Translates the input text from English to Saraswati (Ceaser cipher)"""
+    def encode(self, shift: int = 0):
+        """Encodes the input text"""
         jumbled_chars = []
+        if shift == 0:
+            shift = self.shift
         for char in self.input:
-            jumbled_char = self.swap_character(char, self.shift)
+            jumbled_char = self.swap_character(char, shift)
             jumbled_chars.append(jumbled_char)
         return "".join(jumbled_chars)
     
-    def to_english(self):
-        """Translates the input text from Saraswati to English (Ceaser cipher)"""
-        jumbled_chars = []
-        for char in self.input:
-            jumbled_char = self.swap_character(char, -self.shift)
-            jumbled_chars.append(jumbled_char)
-        return "".join(jumbled_chars)
+    def decode(self):
+        """Decodes the input text by negating the shift value"""
+        return self.encode(-self.shift)
 
     @staticmethod
     def swap_character(char: str = 'á', shift: int = 13):
         """Swaps a character with another character a certain number of positions away"""
         current_codepoint = ord(char)
         target_codepoint = ord(char) + shift
+        logging.debug(f"current_codepoint: {current_codepoint}, target_codepoint: {target_codepoint}")
 
         # Only continue if the character is a letter
         if 'L' not in unicodedata.category(char):

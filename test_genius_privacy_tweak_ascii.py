@@ -4,8 +4,8 @@ import pytest
 from genius_privacy_tweak import GeniusPrivacyTweak
 
 @pytest.fixture
-def gpt(input="text", output_lang="Saraswati"):
-    return GeniusPrivacyTweak(input="text", output_lang="Saraswati")
+def gpt(input="text"):
+    return GeniusPrivacyTweak()
 
 def test_gpt_swaps_character_correctly():
     """
@@ -47,63 +47,48 @@ def test_characters_before_beginning_or_after_end_of_alphabet_are_wrapped():
     # Issue with 'Gbqnl' being translated as 'Tod{y'
     assert GeniusPrivacyTweak.swap_character(char='n', shift=13) == "a"
 
-def test_gpt_english_to_saraswati():
-    """Test that the saraswati translator can translate from English to Saraswati"""
+def test_gpt_encode_english():
+    """Test that the obfuscator can encode from English"""
     gpt = GeniusPrivacyTweak(
-        input="Today",
-        output_lang="Saraswati"
+        input="Today"
     )
-    assert gpt.translate() == "Gbqnl"
+    assert gpt.encode() == "Gbqnl"
 
-def test_gpt_saraswati_to_english_13():
-    """Test that the saraswati translator can translate from Saraswati to English"""
+def test_gpt_decode_to_english_13():
+    """Test that the obfuscator can decode to English shifted by 13"""
     gpt = GeniusPrivacyTweak(
         input="Gbqnl",
-        output_lang="English",
         shift=13
     )
-    assert gpt.translate() == "Today"
+    assert gpt.decode() == "Today"
 
-def test_gpt_saraswati_to_english_4():
-    """Test that the saraswati translator can translate from Saraswati to English"""
+def test_gpt_decode_to_english_4():
+    """Test that the obfuscator can decode to English shifted by 4"""
     gpt = GeniusPrivacyTweak(
         input="Xshec",
-        output_lang="English",
         shift=4
     )
-    assert gpt.translate() == "Today"
+    assert gpt.decode() == "Today"
 
-def test_gpt_saraswati_to_english_22():
-    """Test that the saraswati translator can translate from Saraswati to English"""
+def test_gpt_decode_to_english_22():
+    """Test that the obfuscator can decode to English shifted by 22"""
     gpt = GeniusPrivacyTweak(
         input="Pkzwu",
-        output_lang="English",
         shift=22
     )
-    assert gpt.translate() == "Today"
+    assert gpt.decode() == "Today"
 
-def test_gpt_saraswati_to_english_minus_1():
-    """Test that the saraswati translator can translate from Saraswati to English"""
+def test_gpt_decode_to_english_minus_1():
+    """Test that the obfuscator can decode to English shifted by -1"""
     gpt = GeniusPrivacyTweak(
         input="Snczx",
-        output_lang="English",
         shift=-1
     )
-    assert gpt.translate() == "Today"
+    assert gpt.decode() == "Today"
 
-def test_translation_supports_symbols_and_punctuation():
-    """Test that the saraswati translator can translate symbols and punctuation"""
+def test_obfuscating_skips_symbols_and_punctuation():
+    """Test that the obfuscator skips symbols and punctuation"""
     gpt = GeniusPrivacyTweak(
         input="Today is the first day of the rest of your life. first@today.com!",
-        output_lang="Saraswati"
     )
-    assert gpt.translate() == "Gbqnl vf gur svefg qnl bs gur erfg bs lbhe yvsr. svefg@gbqnl.pbz!"
-
-@pytest.mark.skip(reason="Not implemented yet")
-def test_translation_supports_utf8():
-    """Test that the saraswati translator can translate utf-8 characters, including accented characters and emojis"""
-    gpt = GeniusPrivacyTweak(
-        input="Today is the first day of the rest of your life. áÁñÑçÇ¿ 🎉",
-        output_lang="Saraswati"
-    )
-    assert gpt.translate() == "gµqnÈ vÂ Ãur svÁÂÃ qnÈ µs Ãur ÁrÂÃ µs ÈµÄÁ yvsr. îÎÿßôÔ¿ 🎉"
+    assert gpt.encode() == "Gbqnl vf gur svefg qnl bs gur erfg bs lbhe yvsr. svefg@gbqnl.pbz!"

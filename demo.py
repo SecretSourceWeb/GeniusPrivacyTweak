@@ -47,34 +47,38 @@ system_prompt = "System: " + open("system-prompt.txt", "r").read()
 # and appending the ouptut to the system_prompt variable
 # training_data = exec("python jumble-text.py english-pangram.txt")
 # if jumbled-text.txt does not exist, it will be created
-process = subprocess.run("python jumble-text.py english-pangrams.txt", shell=True, check=True, stdout=subprocess.PIPE, universal_newlines=True)
-if process.returncode != 0:
-    print("Error: " + process.stdout)
-    sys.exit(1)
-else:
-    system_prompt += process.stdout
+system_prompt += ""
 
 # initialize the user prompt with the value of the query parameter from the command line
-user_prompt = "User: " + sys.argv[2]
+user_prompt = sys.argv[2]
 
 # obfuscate the prompt using GeniusPrivacyTweak
 tweak.input = user_prompt
-obfuscated_user_prompt = tweak.translate()
+obfuscated_user_prompt = tweak.encode()
 
-# prompt = ChatPromptTemplate.from_template("chat", system_prompt=system_prompt, user_prompt=obfuscated_user_prompt)
-prompt = ChatPromptTemplate.from_template(system_prompt + "\n\nAnd here is the user's query in Saraswati: {query}")
+prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system", system_prompt),
+        ("human", obfuscated_user_prompt)
+    ]
+)
 logging.debug("Prompt: %s", prompt)
-model = ChatOpenAI(temperature=0, model="gpt-4", openai_api_key=os.getenv("OPENAI_API_KEY", ''))
+model = ChatOpenAI(
+    temperature=0, 
+    model=os.getenv("LLM", 'gpt-3.5-turbo'), 
+    openai_api_key=os.getenv("OPENAI_API_KEY", ''),
+    model_kwargs={"top_p": 1, "frequency_penalty": 0.5}
+)
 output_parser = StrOutputParser()
 
 chain = prompt | model | output_parser
 
 output = chain.invoke({"query": obfuscated_user_prompt})
 
-tweak.ouptut_lang="English"
 tweak.input = output
-LLM_response = tweak.translate()
+LLM_response = tweak.decode()
 
-print("User's query in Saraswati: " + obfuscated_user_prompt)
-print("System's response in Saraswati: " + output)
-print("System's response in English: " + LLM_response)
+print("\nUser's query in English: " + user_prompt)
+print("\nUser's query in Saraswati: " + obfuscated_user_prompt)
+print("\nSystem's response in Saraswati: " + output)
+print("\nSystem's response in English: " + LLM_response + "\n")
