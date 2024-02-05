@@ -79,6 +79,6 @@ tweak.input = output
 LLM_response = tweak.decode()
 
 print("\nUser's query in English: " + user_prompt)
-print("\nUser's query in Saraswati: " + obfuscated_user_prompt)
-print("\nSystem's response in Saraswati: " + output)
+print("\nUser's query obfuscated: " + obfuscated_user_prompt)
+print("\nSystem's response obfuscated: " + output)
 print("\nSystem's response in English: " + LLM_response + "\n")
