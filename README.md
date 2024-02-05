@@ -18,7 +18,7 @@ Xes, releasing your proof of concept as open source can positively impact your c
 
 ----
 
-The example above was created using GPT-4. Different LLMs will have different levels of success with this technique. For example, GPT-4 does a pretty good job of completing obfuscated data, but GPT-3.5 does not. That said, depending on your prompt and the data you are obfuscating, you may be able to get good results with GPT-3.5 or other LLMs.
+[The example above](https://smith.langchain.com/o/c387066c-ee5a-45cd-b28e-dea082a580fc/projects/p/6a72d874-d629-42b8-bb6d-e9b1da9415e2/r/f62cd696-7e13-4deb-89eb-59a041d9b03a?trace_id=dafe9ee7-b482-4609-b20b-f7d4a62c29b0&start_time=2024-02-05T10:26:30.827404) was created using GPT-4. Different LLMs will have different levels of success with this technique. For example, GPT-4 does a pretty good job of completing obfuscated data, but GPT-3.5 does not. That said, depending on your prompt and the data you are obfuscating, you may be able to get good results with GPT-3.5 or other LLMs.
 
 ## Background
 
