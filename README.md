@@ -20,6 +20,10 @@ Xes, releasing your proof of concept as open source can positively impact your c
 
 [The example above](https://smith.langchain.com/o/c387066c-ee5a-45cd-b28e-dea082a580fc/projects/p/6a72d874-d629-42b8-bb6d-e9b1da9415e2/r/f62cd696-7e13-4deb-89eb-59a041d9b03a?trace_id=dafe9ee7-b482-4609-b20b-f7d4a62c29b0&start_time=2024-02-05T10:26:30.827404) was created using GPT-4. Different LLMs will have different levels of success with this technique. For example, GPT-4 does a pretty good job of completing obfuscated data, but GPT-3.5 does not. That said, depending on your prompt and the data you are obfuscating, you may be able to get good results with GPT-3.5 or other LLMs.
 
+## Relationship with PII
+
+While the data is still technically PII, this approach does seem to be the recommended way of handling PII. For example, the [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) and the [Information Commissioner's Office](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-information-what-is-it/what-is-personal-data/what-is-personal-data/#pd4) make recommendations on how to handle PII and this approach seems to be in line with their recommendations. Do note: the obfuscation does not free the data from the requirements of the GDPR or other data protection laws. It is still PII and must be handled as such.
+
 ## Background
 
 This came to me because one day I was thinking about how to protect PII in a way that was not easily reversible. I had been toying with the idea for a while and thought, "The problem reminds me of speaking pig latin in front of children." and then it occurred to me: GPT is simply a pattern recognition engine, and a really complex and powerful one at that. I'll bet I could obfuscate the data in such a way that it would still be able to predict the next word in a sentence. I was right. It works. It's not perfect, but it's good enough for most people's needs.
