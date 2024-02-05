@@ -22,13 +22,19 @@ This came to me because one day I was thinking about how to protect PII in a way
 
 The idea for this project came from my experimentation with [the Microsoft Presidio project](https://python.langchain.com/docs/guides/privacy/presidio_data_anonymization/reversible). I was unhappy with the results I was getting from Presidio. Specifically, processing time was significantly increased, like 2x or more (mostly more) and it included calls to the LLM prior to submitting the data. I wondered if I could use something like [pig latin](https://en.wikipedia.org/wiki/Pig_Latin) to obfuscate PII but rather than bother pulling out just those pieces of PII, just obfuscate everything. I also wanted to see if I could do it in a way that was not easily reversible. Currently this project uses a [Ceaser cipher](https://en.wikipedia.org/wiki/Caesar_cipher) because it produces English-ish (similar to English) output. The current implementation only supports ASCII characters. The cipher can be decrypted via brute force because, in the current implementation, the maximum shift is 25 characters (although you can shift in either direction). In spite of these shortcomings, I believe this module provides the protection most people require (good enough).
 
+We haven't done much testing but what little we've done shows that some "shift" values work better than others. For example, shifting by 1 or 13 seems to work pretty well but shifting by 7, for example, returns very poor results.
+
+We've tried including training data in the system prompt to help the LLM figure out how many places the data has been shifted, but this doesn't seem to help. That said, we wonder if using this on a fine tuned model might improve results, especially for numbers like 7. We haven't tried that yet.
+
 This project is sponsored by [Secret Source Technology - A tech team you'll love working with](https://www.secret-source.eu/). We offer dev team augmentation, custom software development, and consulting services. We have a team of 20+ developers, designers, and project managers. We have been in business for over 10 years and have worked with clients all over the world. We are experts in Python, React, TypeScript, Node, Express, NestJS, Laravel, C# .Net Core and much more, and more. We can help you with your next project. [Contact us today!](https://www.secret-source.eu/connect/)
 
 ![Secret Source Technology - A tech team you'll love working with](https://media.licdn.com/dms/image/D4D16AQGH4LVPJ5oboQ/profile-displaybackgroundimage-shrink_350_1400/0/1688397476732?e=1712188800&v=beta&t=lFnHVi7IDnSsCPdA64nD54zuRFZVYMZ0fGGrf12U1ks)
 
 ## Setup
 
-This project has a Dockerfile to make testing easy. You can build the docker image and bring up the container by running the following command:
+This project has a Dockerfile to make testing easy. You need to create a `.env` file in the root of the project. Copy and past `env.sample` and change the values to make your life easy.
+
+You can build the docker image and bring up the container by running the following command:
 
 ```bash
 docker-compose up -d
